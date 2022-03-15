@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Programming"
 author: "Zeeshan Khar"
-date: "March 15, 2022"
+date: "March 18, 2022"
 output: html_document
 ---
 
@@ -23,27 +23,34 @@ output: html_document
 
 
 ```{r }
-#### Start solution ####
+MyFirstNameChar <- c("Z" , "e" , "s", "h", "a", "n")
+
+print(MyFirstNameChar)
 ```
 
 
 ```{r }
-222
+paste(MyFirstNameChar,collapse ='' )
 ```
 
 
 ```{r }
+SeqForNumbers<- (100:120)
 
+print(SeqForNumbers)
 ```
 
 
 ```{r }
-
+a<- seq(2,118, by=2)
+x <- matrix(a,nrow=3,ncol=3)
+x
 ```
 
 
 ```{r }
-
+dimnames(x) <- list(c("a","b","c"), c("z","y","x"))
+x
 ```
 
 
@@ -64,17 +71,21 @@ output: html_document
 
 
 ```{r }
-
+Q1_Variable <- factor(c("Employed", "Self-Employed","Employed", "Unemployed", "Self-Employed","Employed", "Unemployed", "Self-Employed"),
+                      levels = c("Employed", "Unemployed", "Self-Employed"))
+Q1_Variable
 ```
 
 
 ```{r }
-
+Q2_Table<- table(Q1_Variable)
+Q2_Table
 ```
 
 
 ```{r }
-
+Q3<- unclass(Q1_Variable)
+Q3
 ```
 
 
