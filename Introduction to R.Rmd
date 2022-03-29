@@ -30,7 +30,11 @@ print(MyFirstNameChar)
 
 
 ```{r }
+<<<<<<< HEAD
 paste(MyFirstNameChar,collapse ='' )
+=======
+
+>>>>>>> af318f7596e255d57f6a157f98eaa76b717d62b9
 ```
 
 
@@ -84,8 +88,9 @@ Q2_Table
 
 
 ```{r }
-Q3<- unclass(Q1_Variable)
-Q3
+Q<- unclass(Q1_Variable)
+
+Q
 ```
 
 
