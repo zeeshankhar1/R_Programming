@@ -30,11 +30,8 @@ print(MyFirstNameChar)
 
 
 ```{r }
-<<<<<<< HEAD
 paste(MyFirstNameChar,collapse ='' )
-=======
 
->>>>>>> af318f7596e255d57f6a157f98eaa76b717d62b9
 ```
 
 
@@ -46,7 +43,8 @@ print(SeqForNumbers)
 
 
 ```{r }
-a<- seq(2,118, by=2)
+a<- seq(2,18, by=2)
+a
 x <- matrix(a,nrow=3,ncol=3)
 x
 ```
@@ -117,6 +115,8 @@ Q
 
 
 ```{r }
+bank_customers<- data.frame("CustomerID" =1, "hasAccount"=T, "totalBalance"=2)
+bank_customers
 
 ```
 
