@@ -115,24 +115,25 @@ Q
 
 
 ```{r }
-bank_customers<- data.frame("CustomerID" =1, "hasAccount"=T, "totalBalance"=2)
+bank_customers<- data.frame("CustomerID" =c("Alicia","Nancy","Fernando","Louis","Diane"), "hasAccount"=c(F,T,T,T,F), "totalBalance"=c(NA,10000,0,2000,NA))
 bank_customers
 
 ```
 
 
 ```{r }
+nrow(bank_customers)
+```
+
+
+```{r }
+ncol(bank_customers)
 
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+names(bank_customers)
 ```
 
 
@@ -159,7 +160,8 @@ bank_customers
 
 
 ```{r }
-
+a<- seq(1,100, by =2)
+a
 ```
 
 
