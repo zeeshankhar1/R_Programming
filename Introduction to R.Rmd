@@ -171,13 +171,47 @@ for (i in seq_len(nrow(x))) {
 
 
 ```{r }
-x<- seq(2,4, by = 1)
+x<- seq(7,12)
 x
- for (i in x) {
-        for (j in seq_len(i-1))
-        {print(j)}
-                     
+y<- seq(x-1)
+y
+9%%3==0
+
+for (i in x) {
+        for (j in seq(2,i-1)){
+                if ((i%%j)==0) break 
+        print(i[1])                        
+                }
+        
+        }
+
+s <- 0:20
+for (i in s) {
+   if (i == 0) {
+     next
+   } else if (i == 1) {
+     next
+   } else if (i == 2) {
+     i = 2
+   } else if (i %% 2 == 0) {
+     next
+   } else if (i == 3) {
+     i = 3
+   } else if (i %% 3 == 0) {
+     next
+   } else if (i == 5) {
+     i = 5
+   } else if (i %% 5 == 0) {
+     next
+   } 
+     else if (i == 7) {
+     i = 7
+   } else if (i %% 7 == 0) {
+     next 
+   }
+   print(i)
 }
+                     
 
 ```
 
