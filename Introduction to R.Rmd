@@ -160,78 +160,43 @@ names(bank_customers)
 
 
 ```{r }
-x<- matrix(1:30,5,6)
-x
-for (i in seq_len(nrow(x))) {
-        for (j in seq_len(ncol(x))) {
-        print(x[i,j])
-                                        }
-}
-```
+                                              # Basic theme: if number is not divisible by 2,3,5,7 then it is prime. Hum nay i ki har value ko 2,3,5,7 say check kia k agar remainder 0 hay to next number par chala jay. Is tarah tamaam numbers jo 2,3,5,7 par divide ho jayay hain un ko skip kar lia,  so all remaining numbers will be prime
 
-
-```{r }
-x<- seq(7,12)
-x
-y<- seq(x-1)
-y
-9%%3==0
-
-for (i in x) {
-        for (j in seq(2,i-1)){
-                if ((i%%j)==0) break 
-        print(i[1])                        
-                }
+z<- 1:100
+for (i in z){
+        if (i==1)  next         # 1 in not prime so skip this manually 
         
-        }
-
-s <- 0:20
-for (i in s) {
-   if (i == 0) {
-     next
-   } else if (i == 1) {
-     next
-   } else if (i == 2) {
-     i = 2
-   } else if (i %% 2 == 0) {
-     next
-   } else if (i == 3) {
-     i = 3
-   } else if (i %% 3 == 0) {
-     next
-   } else if (i == 5) {
-     i = 5
-   } else if (i %% 5 == 0) {
-     next
-   } 
-     else if (i == 7) {
-     i = 7
-   } else if (i %% 7 == 0) {
-     next 
-   }
-   print(i)
+                # 2,3,5,7 are  prime so add these manually
+        else if (i==2) i==2
+        else if (i==3) i==3
+        else if (i==5) i==5 
+        else if (i==7) i==7
+        
+        #below is the very important part of this LOOP, it removes all multiples of 2,3,5,7
+        else if (i%%2 ==0) next              # if i is divisible by 2 then skip it
+        else if (i%%3 ==0) next              # if i is divisible by . then skip it
+        else if (i%%5 ==0) next              # if i is divisible by 5 then skip it
+        else if (i%%7 ==0) next              # if i is divisible by 7 then skip it
+print (i)
 }
-                     
+
 
 ```
 
 
 ```{r }
-# Python program to display all the prime numbers within an interval
+# 1. Create a while loop and increase the value of var at each iteration.   
+# 2. When you reach the 10th prime number, terminate the loop and print the number.  
+a<- 1
+while (a+1) {
+        
+}
+```
 
-lower = 900
-upper = 1000
 
-print("Prime numbers between", lower, "and", upper, "are:")
+```{r }
 
-for num in range(lower, upper + 1):
-   # all prime numbers are greater than 1
-   if num > 1:
-       for i in range(2, num):
-           if (num % i) == 0:
-               break
-       else:
-           print(num)
+
 ```
 
 
