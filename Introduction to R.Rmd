@@ -165,8 +165,8 @@ names(bank_customers)
                                               # Basic theme: if number is not divisible by 2,3,5,7 then it is prime. Hum nay i ki har value ko 2,3,5,7 say check kia k agar remainder 0 hay to next number par chala jay. Is tarah tamaam numbers jo 2,3,5,7 par divide ho jayay hain un ko skip kar lia,  so all remaining numbers will be prime
 
 z<- 1:100
-x<-c()
-x
+storage<-c()
+storage
 for (i in z){
         if (i==1)  next         # 1 in not prime so skip this manually 
         
@@ -181,11 +181,29 @@ for (i in z){
         else if (i%%3 ==0) next              # if i is divisible by . then skip it
         else if (i%%5 ==0) next              # if i is divisible by 5 then skip it
         else if (i%%7 ==0) next              # if i is divisible by 7 then skip it
-print (i)
+        storage<-c(storage,i)
 }
-
+print(storage)
 ```
 
+```{r }
+                        # OR
+z<- 1:100
+storage<- c()
+for (i in z) {
+        isPrimee<- T
+        if (i==1) next
+        for (j in 2:(i%/%2)) {
+                if (i%%j==0 && i!=2 && i!=3 ) {
+                        isPrimee<- F}
+        }
+        if (isPrimee) {
+                storage<- c(storage,i)
+        }
+        
+}
+print(storage)
+```
 
 ```{r }
 # 1. Create a while loop and increase the value of var at each iteration.   
@@ -219,25 +237,6 @@ while (Sr_No < How_many_Prime_number_Needed) {
 ```
 
 
-```{r }
-sqr = seq(1, 100, by =2) 
-#sqr.squared = NULL 
-sqr.squared
-for (n  in 1:50) {
-        sqr.squared[n] = sqr[n]^2
-        }
-print(sqr.squared)
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -252,10 +251,24 @@ print(sqr.squared)
 ```{r }
 #### Start solution ####
 ```
-
-
 ```{r }
+mat_1<- matrix(seq(1,17 , by=2),3,3)
+mat_1
+for (i in seq_len(nrow(mat_1))) {
+        for (j in seq_len(ncol(mat_1))) {
+                print(mat_1[i,j])
+                            print(which(mat_1==mat_1[i,j], arr.ind=T))
+        }
+}
+which(mat_1==11,arr.ind = F)
 
+names(mat_1) 
+which(mat_1==5)
+df<-datasets::iris
+df
+dimnames(df)
+colnames(df)
+example(which)
 ```
 
 
