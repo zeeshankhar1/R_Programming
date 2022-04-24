@@ -296,66 +296,31 @@ example(which)
 
 
 ```{r }
-gcd <- function(a,b) {
-  
-  if ( a > b ) {
-    max_num = a
-    }
-    else {
-      max_num = b
-    }
-  for (i in 1:max_num) {
-  if ((a %% i == 0) && (b %% i == 0)) {
-    answer = i
-  }
-}
-  return(answer)
-}
+# Following is the most simple form. 
+# It workd only 1st number is greater than 2nd number
+# IF condition if we add before the while then it will also work for any aroentation of numbers
 
+GCD<- function(a,b)
+{
+if (b > a) {
+                s<- a
+                a<- b
+                b<- s
+                
+        }        
+while (b >0) {
+        above <- a
+        a <- b
+        b <- above%%a 
+}      
+return(a)        
 
-answer <- gcd(3600, 600)
+}
+answer<- GCD (48,200)
 answer
-```
-
-
-```{r }
-f<- function (n, m) 
-{       
-        #12,10
-   
-    if (m > n) {
-        t <- n
-        n <- m
-        m <- t
-    }
-    while (m > 0) {
-        t <- n  # 48           20  8
-        n <- m  # 20            8   4
-        m <- t%%m  # 48%%20=8   4    0
-    }
-    return(n)
-}
-f (48,20)
-
-6%%3
 
 ```
 
-
-```{r }
-#euclidean algorithm for finding the GCD
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -376,28 +341,16 @@ f (48,20)
 
 
 ```{r }
+allConditionsMeet<-function(a,b)
+{
+        if ((a = T) && (b== T)) return(T)   else    F  
+}
+allConditionsMeet(T,T)
+allConditionsMeet(T,F)
 
 ```
 
 
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -423,7 +376,10 @@ f (48,20)
 
 
 ```{r }
-
+matrix_1<- matrix(1:6,ncol = 3, nrow = 2)
+matrix_2<- matrix(1:6,3,2)
+a<- matrix_1*matrix_2
+a
 ```
 
 
