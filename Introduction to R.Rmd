@@ -296,16 +296,54 @@ example(which)
 
 
 ```{r }
+gcd <- function(a,b) {
+  
+  if ( a > b ) {
+    max_num = a
+    }
+    else {
+      max_num = b
+    }
+  for (i in 1:max_num) {
+  if ((a %% i == 0) && (b %% i == 0)) {
+    answer = i
+  }
+}
+  return(answer)
+}
+
+
+answer <- gcd(3600, 600)
+answer
+```
+
+
+```{r }
+f<- function (n, m) 
+{       
+        #12,10
+   
+    if (m > n) {
+        t <- n
+        n <- m
+        m <- t
+    }
+    while (m > 0) {
+        t <- n  # 48           20  8
+        n <- m  # 20            8   4
+        m <- t%%m  # 48%%20=8   4    0
+    }
+    return(n)
+}
+f (48,20)
+
+6%%3
 
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
+#euclidean algorithm for finding the GCD
 
 ```
 
