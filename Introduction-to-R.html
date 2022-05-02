@@ -11,7 +11,7 @@
 
 <meta name="author" content="Zeeshan Khar" />
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2022-05-02" />
 
 <title>Introduction to R Programming</title>
 
@@ -167,7 +167,7 @@ pre code {
 
 <h1 class="title toc-ignore">Introduction to R Programming</h1>
 <h4 class="author">Zeeshan Khar</h4>
-<h4 class="date">March 30, 2022</h4>
+<h4 class="date">May 02, 2022</h4>
 
 </div>
 
@@ -525,11 +525,11 @@ d&lt;- as.POSIXlt(curr_date)
 t&lt;- as.POSIXlt(curr_time)
 
 t$wday</code></pre>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 1</code></pre>
 <pre class="r"><code>t$year</code></pre>
 <pre><code>## [1] 122</code></pre>
 <pre class="r"><code>t$hour</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 18</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
 </div>
 <div id="question-2-3" class="section level3">
@@ -538,21 +538,10 @@ t$wday</code></pre>
 1. Create another variable that stores and set the timezone as GMT-5<br />
 2. Find the difference between your current time and the GMT-5 timezone.</p>
 <pre class="r"><code>#### Start solution ####</code></pre>
-<pre class="r"><code>x&lt;- as.Date( &quot;2022-04-28&quot;)
-y&lt;- as.Date( &quot;2022-04-29&quot;)
-
-as.POSIXlt(x)</code></pre>
-<pre><code>## [1] &quot;2022-04-28 UTC&quot;</code></pre>
-<pre class="r"><code>as.POSIXlt(y)</code></pre>
-<pre><code>## [1] &quot;2022-04-29 UTC&quot;</code></pre>
-<pre class="r"><code>as.POSIXct(x)</code></pre>
-<pre><code>## [1] &quot;2022-04-28 05:00:00 PKT&quot;</code></pre>
-<pre class="r"><code>as.POSIXct(y)</code></pre>
-<pre><code>## [1] &quot;2022-04-29 05:00:00 PKT&quot;</code></pre>
-<pre class="r"><code>?as.POSIXct</code></pre>
-<pre><code>## starting httpd help server ... done</code></pre>
-<pre class="r"><code>y-x</code></pre>
-<pre><code>## Time difference of 1 days</code></pre>
+<pre class="r"><code>a&lt;- as.POSIXct(Sys.time()) 
+b&lt;- strptime(a, format = &quot;%Y-%m-%d %H:%M:%S&quot;, tz = &quot;GMT&quot;)
+b-a</code></pre>
+<pre><code>## Time difference of 4.999848 hours</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
 </div>
 <div id="good-job-you-have-successfully-completed-the-section-4" class="section level3">
@@ -565,12 +554,40 @@ as.POSIXlt(x)</code></pre>
 <h3>Question 1</h3>
 <p><strong>Create a function to calculate mean and standard deviation of the provided data</strong> 1. Create a sequence of numbers from 100 to 150 store in a variable called numbers. 1. Use lapply, sapply, apply and tapply to implement the functions on “numbers” [only on the second half of the sequence for tapply]</p>
 <pre class="r"><code>#### Start solution ####</code></pre>
+<pre class="r"><code>numbers&lt;- list(a=100:150)
+lapply(numbers, sd)</code></pre>
+<pre><code>## $a
+## [1] 14.86607</code></pre>
+<pre class="r"><code>sapply(numbers, sd)</code></pre>
+<pre><code>##        a 
+## 14.86607</code></pre>
+<pre class="r"><code># convert the sequence in to the matrix then apply the apply function on it
+num&lt;- matrix(101:150,10,5)
+apply(num,1,sum)</code></pre>
+<pre><code>##  [1] 605 610 615 620 625 630 635 640 645 650</code></pre>
+<pre class="r"><code>args(apply)</code></pre>
+<pre><code>## function (X, MARGIN, FUN, ..., simplify = TRUE) 
+## NULL</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
 </div>
 <div id="question-2-4" class="section level3">
 <h3>Question 2</h3>
 <p><strong>Create a matrix of dimensions 4x4</strong> 1. Find the row-wise and column-wise mean of the matrix. 2. Print the values.</p>
 <pre class="r"><code>#### Start solution ####</code></pre>
+<pre class="r"><code>a&lt;- matrix(1:16,4,4)
+a</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9   13
+## [2,]    2    6   10   14
+## [3,]    3    7   11   15
+## [4,]    4    8   12   16</code></pre>
+<pre class="r"><code>RowWiseTotal&lt;- apply(a, 1, sum)
+ColWiseTotal&lt;- apply(a, 2, sum)
+
+RowWiseTotal</code></pre>
+<pre><code>## [1] 28 32 36 40</code></pre>
+<pre class="r"><code>ColWiseTotal</code></pre>
+<pre><code>## [1] 10 26 42 58</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
 </div>
 <div id="good-job-you-have-successfully-completed-the-section-5" class="section level3">
@@ -596,6 +613,42 @@ as.POSIXlt(x)</code></pre>
 ## 5    1 1231           120
 ## 6    1 1372           142</code></pre>
 <pre class="r"><code>#### Start solution ####</code></pre>
+<pre class="r"><code>split_data&lt;- split(Orange,Orange$circumference)
+
+split_data$&quot;30&quot;</code></pre>
+<pre><code>##    Tree age circumference
+## 1     1 118            30
+## 15    3 118            30
+## 29    5 118            30</code></pre>
+<pre class="r"><code>split_data$&quot;75&quot;</code></pre>
+<pre><code>##    Tree age circumference
+## 17    3 664            75</code></pre>
+<pre class="r"><code>        #OR
+split_data[c(&quot;30&quot;,&quot;75&quot;)]</code></pre>
+<pre><code>## $`30`
+##    Tree age circumference
+## 1     1 118            30
+## 15    3 118            30
+## 29    5 118            30
+## 
+## $`75`
+##    Tree age circumference
+## 17    3 664            75</code></pre>
+<pre class="r"><code>y&lt;-split_data[c(&quot;30&quot;,&quot;214&quot;)]
+y</code></pre>
+<pre><code>## $`30`
+##    Tree age circumference
+## 1     1 118            30
+## 15    3 118            30
+## 29    5 118            30
+## 
+## $`214`
+##    Tree  age circumference
+## 28    4 1582           214</code></pre>
+<pre class="r"><code>sapply(y,function(x) colMeans(x[,c(&quot;age&quot;,&quot;circumference&quot;)],na.rm = TRUE))</code></pre>
+<pre><code>##                30  214
+## age           118 1582
+## circumference  30  214</code></pre>
 <pre class="r"><code>#### End solution ####</code></pre>
 </div>
 <div id="save-it-and-push-.rmd-and-.html-file-to-your-github-repository" class="section level3">

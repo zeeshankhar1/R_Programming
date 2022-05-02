@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Programming"
 author: "Zeeshan Khar"
-date: "March 30, 2022"
+date: "May 02, 2022"
 output:
   html_document: default
   pdf_document: default
@@ -446,39 +446,14 @@ t$hour
 
 
 ```{r }
-x<- as.Date( "2022-04-28")
-y<- as.Date( "2022-04-29")
-
-as.POSIXlt(x)
-as.POSIXlt(y)
-as.POSIXct(x)
-as.POSIXct(y)
-?as.POSIXct
-
-y-x
+a<- as.POSIXct(Sys.time()) 
+b<- strptime(a, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+b-a
 
 
 ```
 
 
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -501,28 +476,26 @@ y-x
 
 
 ```{r }
+numbers<- list(a=100:150)
+lapply(numbers, sd)
+sapply(numbers, sd)
+
+# convert the sequence in to the matrix then apply the apply function on it
+num<- matrix(101:150,10,5)
+apply(num,1,sum)
+
+args(apply)
+
+
 
 ```
 
 
 ```{r }
-
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -541,28 +514,18 @@ y-x
 
 
 ```{r }
+a<- matrix(1:16,4,4)
+a
+RowWiseTotal<- apply(a, 1, sum)
+ColWiseTotal<- apply(a, 2, sum)
 
+RowWiseTotal
+ColWiseTotal
+
+        
 ```
 
 
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
 
 
 ```{r }
@@ -585,6 +548,7 @@ The dataset is loaded and the variable Orange contains the respective dataset.
 
 ```{r }
 library(datasets)
+
 ```
 
 
@@ -599,6 +563,17 @@ head(Orange)
 
 
 ```{r }
+
+split_data<- split(Orange,Orange$circumference)
+
+split_data$"30"
+split_data$"75"
+        #OR
+split_data[c("30","75")]
+
+y<-split_data[c("30","214")]
+y
+sapply(y,function(x) colMeans(x[,c("age","circumference")],na.rm = TRUE))
 
 ```
 
